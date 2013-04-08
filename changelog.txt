@@ -1,3 +1,4 @@
-v1.0 (Sunday, 17 March 2013) :
- - initial version;
+v1.0.0 (Sunday, 17 March 2013) :
+- initial version
+
  

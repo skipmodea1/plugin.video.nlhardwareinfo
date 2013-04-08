@@ -18,11 +18,8 @@
 #
 #also in ..._const
 __addon__       = "plugin.video.nlhardwareinfo"
-__plugin__      = "NlHardwareInfo"
-__author__      = "Skipmode A1"
-__url__         = ""
-__date__        = "17 march 2013"
-__version__     = "1.0"
+__date__        = "7 april 2013"
+__version__     = "1.0.0"
 
 #
 # Imports
@@ -43,8 +40,25 @@ sys.path.append (LIB_DIR)
 # Get plugin settings
 DEBUG = xbmcaddon.Addon(id='plugin.video.nlhardwareinfo').getSetting('debug')
 
-if (DEBUG) == 'true':
-    xbmc.log( "[ADDON] %s v%s (%s) is starting, ARGV = %s" % ( __addon__, __version__, __date__, repr(sys.argv) ), xbmc.LOGNOTICE )
-import nlhardwareinfo_list_play as plugin
- 
+# Parse parameters...
+if len(sys.argv[2]) == 0:
+    #
+    # Main menu
+    #
+    if (DEBUG) == 'true':
+        xbmc.log( "[ADDON] %s v%s (%s) is starting, ARGV = %s" % ( __addon__, __version__, __date__, repr(sys.argv) ), xbmc.LOGNOTICE )
+    import nlhardwareinfo_main as plugin
+else:
+    action = urlparse.parse_qs(urlparse.urlparse(sys.argv[2]).query)['action'][0]
+    #
+    # List
+    #
+    if action == 'list':
+        import nlhardwareinfo_list as plugin
+    #
+    # Play
+    #
+    elif action == 'play':
+        import nlhardwareinfo_play as plugin
+
 plugin.Main()
