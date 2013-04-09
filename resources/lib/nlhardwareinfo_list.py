@@ -104,8 +104,9 @@ class Main:
 				 xbmc.log( "[ADDON] %s v%s (%s) debug mode, %s = %s" % ( __addon__, __version__, __date__, "video_page_url", str(video_page_url) ), xbmc.LOGNOTICE )
 	 		
 			# Make title
-			title = str(thumbnail_and_title_urls[thumbnail_and_title_urls_index]['title'])
-			#title = title.capitalize()
+			title = thumbnail_and_title_urls[thumbnail_and_title_urls_index]['title']
+			#convert from unicode to encoded text (don't use str() to do this)
+			title = title.encode('utf-8')
 			title = title.replace('-',' ')
 			title = title.replace('/',' ')
 			title = title.replace(' i ',' I ')
