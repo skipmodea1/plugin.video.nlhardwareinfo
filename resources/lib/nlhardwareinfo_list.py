@@ -67,7 +67,7 @@ class Main:
 		#
 		# Init
 		#
-		thumbnail_and_title_urls_index = 0
+		titles_and_thumbnail_and_urls_index = 0
 		
 		# 
 		# Get HTML page...
@@ -77,12 +77,12 @@ class Main:
 		# Parse response...
 		soup = BeautifulSoup( html_source )
 		
-		# Get thumbnails-urls
+		# Get titles and thumbnails-urls
 		#<img class="thumb_125" src="http://content.hwigroup.net/images/video/video_teaser/000581.jpg" title="Microsoft Surface Pro tablet review" alt="Microsoft Surface Pro tablet review">
-		thumbnail_and_title_urls = soup.findAll('img', attrs={'class': re.compile("^thumb")})
+		titles_and_thumbnail_and_urls = soup.findAll('img', attrs={'class': re.compile("^thumb")})
 										
 		if (self.DEBUG) == 'true':
-			xbmc.log( "[ADDON] %s v%s (%s) debug mode, %s = %s" % ( __addon__, __version__, __date__, "len(thumbnail_and_title_urls)", str(len(thumbnail_and_title_urls)) ), xbmc.LOGNOTICE )			
+			xbmc.log( "[ADDON] %s v%s (%s) debug mode, %s = %s" % ( __addon__, __version__, __date__, "len(titles_and_thumbnail_and_urls)", str(len(titles_and_thumbnail_and_urls)) ), xbmc.LOGNOTICE )			
 		
 		# Get video-page-urls
 		#<div class="image">
@@ -96,7 +96,6 @@ class Main:
 			xbmc.log( "[ADDON] %s v%s (%s) debug mode, %s = %s" % ( __addon__, __version__, __date__, "len(video_page_urls)", str(len(video_page_urls)) ), xbmc.LOGNOTICE )
 			
 		for video_page_url in video_page_urls :
-	 		#href = video_page_url['href']
 			href = str(video_page_url.a['href'])
 			video_page_url = "http://nl.hardware.info%s" % href
 			
@@ -104,7 +103,7 @@ class Main:
 				 xbmc.log( "[ADDON] %s v%s (%s) debug mode, %s = %s" % ( __addon__, __version__, __date__, "video_page_url", str(video_page_url) ), xbmc.LOGNOTICE )
 	 		
 			# Make title
-			title = thumbnail_and_title_urls[thumbnail_and_title_urls_index]['title']
+			title = titles_and_thumbnail_and_urls[titles_and_thumbnail_and_urls_index]['title']
 			#convert from unicode to encoded text (don't use str() to do this)
 			title = title.encode('utf-8')
 			title = title.replace('-',' ')
@@ -143,21 +142,20 @@ class Main:
 			if (self.DEBUG) == 'true':
 				xbmc.log( "[ADDON] %s v%s (%s) debug mode, %s = %s" % ( __addon__, __version__, __date__, "title", str(title) ), xbmc.LOGNOTICE )
 
-			#if thumbnail_and_title_urls_index + 1 >= len(thumbnail_and_title_urls):
-			if thumbnail_and_title_urls_index >= len(thumbnail_and_title_urls):
-				thumbnail_and_title_url = ''
+			if titles_and_thumbnail_and_urls_index >= len(titles_and_thumbnail_and_urls):
+				title_and_thumbnail_and_url = ''
 			else:
-				thumbnail_and_title_url = thumbnail_and_title_urls[thumbnail_and_title_urls_index]['src']
+				title_and_thumbnail_and_url = titles_and_thumbnail_and_urls[titles_and_thumbnail_and_urls_index]['src']
 
 			# Add to list...
 			parameters = {"action" : "play", "video_page_url" : video_page_url}
 			url = sys.argv[0] + '?' + urllib.urlencode(parameters)
-			listitem = xbmcgui.ListItem( title, iconImage="DefaultVideo.png", thumbnailImage=thumbnail_and_title_url )
+			listitem = xbmcgui.ListItem( title, iconImage="DefaultVideo.png", thumbnailImage=title_and_thumbnail_and_url )
 			listitem.setInfo( "video", { "Title" : title, "Studio" : "nlhardwareinfo" } )
 			folder = False
 			xbmcplugin.addDirectoryItem( handle = int(sys.argv[ 1 ] ), url = url, listitem=listitem, isFolder=folder)
 		
-			thumbnail_and_title_urls_index = thumbnail_and_title_urls_index + 1
+			titles_and_thumbnail_and_urls_index = titles_and_thumbnail_and_urls_index + 1
 
 		#Next page entry...
 		if self.next_page_possible == 'True':

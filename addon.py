@@ -18,7 +18,7 @@
 #
 #also in ..._const
 __addon__       = "plugin.video.nlhardwareinfo"
-__date__        = "7 april 2013"
+__date__        = "10 april 2013"
 __version__     = "1.0.0"
 
 #
