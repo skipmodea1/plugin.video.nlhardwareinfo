@@ -2,7 +2,7 @@
 <addon 
 	id="plugin.video.nlhardwareinfo" 
 	name="HardwareInfo Tv" 
-	version="1.0.0" 
+	version="1.0.1" 
 	provider-name="Skipmode A1">
   <requires>
     <import addon="xbmc.python"                 version="2.1.0"/>
@@ -19,7 +19,7 @@
     <language>nl</language>
     <platform>all</platform>
     <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-    <forum></forum>
+    <forum>http://forum.xbmc.org/showthread.php?tid=162123</forum>
     <website>http://nl.hardware.info/</website>
     <email></email>
     <source></source>
