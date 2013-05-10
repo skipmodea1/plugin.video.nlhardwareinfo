@@ -13,7 +13,7 @@
 	</extension>
   <extension point="xbmc.addon.metadata">
 	<platform>all</platform>
-	<summary lang="en">Watch videos from Nl.Hardware.Info (dutch)</summary>
+	<summary lang="en">Watch hardware videos from Nl.Hardware.Info (dutch)</summary>
 	<description lang="en">Watch videos from Nl.Hardware.Info (dutch)</description>
 	<disclaimer lang="en">For bugs, requests or general questions visit the HardwareInfo thread on the XBMC forum.</disclaimer>
     <language>nl</language>
@@ -22,6 +22,6 @@
     <forum>http://forum.xbmc.org/showthread.php?tid=162123</forum>
     <website>http://nl.hardware.info/</website>
     <email></email>
-    <source></source>
+    <source>git://github.com/skipmodea1/plugin.video.nlhardwareinfo.git</source>
   </extension>
 </addon>
