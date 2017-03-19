@@ -20,11 +20,11 @@ msgid "Hardware.Info TV is a webcast in which the editors of Hardware.Info discu
 msgstr ""
 
 msgctxt "Addon Description"
-msgid "Hardware.Info TV is a webcast in which the editors of Hardware.Info discuss the latest hardware, gadgets and consumer electronics. This plugin lets you view Hardware.Info TV episodes in HD quality via XBMC."
+msgid "Hardware.Info TV is a webcast in which the editors of Hardware.Info discuss the latest hardware, gadgets and consumer electronics. This plugin lets you view Hardware.Info TV episodes in HD quality via Kodi."
 msgstr ""
 
 msgctxt "Addon Disclaimer"
-msgid "For bugs, requests or general questions visit the Hardware.Info thread on the XBMC forum."
+msgid "For bugs, requests or general questions visit the Hardware.Info thread on the Kodi forum."
 msgstr ""
 
 msgctxt "#30000"
