@@ -4,10 +4,8 @@
 #
 # Imports
 #
-import os
 import sys
 import xbmc
-import xbmcaddon
 
 reload(sys)
 sys.setdefaultencoding('utf8')

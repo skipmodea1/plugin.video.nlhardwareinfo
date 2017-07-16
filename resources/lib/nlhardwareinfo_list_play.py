@@ -8,14 +8,14 @@ import os
 import sys
 import urllib
 import urlparse
+import requests
 from time import strptime
 import xbmc
 import xbmcgui
 import xbmcplugin
 from BeautifulSoup import BeautifulSoup
 
-from nlhardwareinfo_const import ADDON, SETTINGS, LANGUAGE, IMAGES_PATH, DATE, VERSION
-from nlhardwareinfo_utils import HTTPCommunicator
+from nlhardwareinfo_const import ADDON, SETTINGS, LANGUAGE, IMAGES_PATH, DATE, VERSION, HEADERS
 
 
 #
@@ -83,9 +83,11 @@ class Main:
         listing = []
 
         #
-        # Get HTML page...
+        # Get HTML page
         #
-        html_source = HTTPCommunicator().get(self.video_list_page_url)
+        response = requests.get(self.video_list_page_url, headers=HEADERS)
+        html_source = response.text
+        html_source = html_source.encode('utf-8', 'ignore')
 
         # Parse response...
         soup = BeautifulSoup(html_source)
