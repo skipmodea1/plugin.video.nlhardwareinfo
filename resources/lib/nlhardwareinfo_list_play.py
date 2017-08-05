@@ -198,7 +198,9 @@ class Main:
             title = title.replace(' xxix ', ' XXIX ')
             title = title.replace(' xxx ', ' XXX ')
             title = title.replace('  ', ' ')
-            # in the title of the item a single-quote "'" is represented as "&#039;" for some reason . Therefore this replace is needed to fix that.
+            # fixing escaped ampersand
+            title = title.replace("&amp;", "&")
+            # in the title of the item a single-quote "'" is represented as "&#039;" for some reason. Therefore this replace is needed to fix that.
             title = title.replace("&#039;", "'")
 
             xbmc.log(
