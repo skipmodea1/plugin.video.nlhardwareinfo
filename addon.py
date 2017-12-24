@@ -4,12 +4,9 @@
 #
 # Imports
 #
+from builtins import str
 import sys
 import xbmc
-
-reload(sys)
-sys.setdefaultencoding('utf8')
-
 
 from resources.lib.nlhardwareinfo_const import ADDON, DATE, VERSION
 

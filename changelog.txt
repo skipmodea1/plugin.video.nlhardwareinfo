@@ -1,5 +1,6 @@
-v1.0.8-SNAPSHOT (2017-08-05)
-- fixed escaped ampersand in title
+v1.0.8-SNAPSHOT (2017-12-03)
+- addon now works in kode python 2 and also 3 (!!) thanks to the future project
+- addon.xml contains NOT YET SUPPORTED python3 tag
 
 v1.0.7 (2017-07-12)
 - added listitem.setInfo video for Kodi 18 and up
