@@ -2,7 +2,7 @@
 <addon 
 	id="plugin.video.nlhardwareinfo" 
 	name="Hardware.Info TV" 
-	version="1.0.8-SNAPSHOT"
+	version="1.0.8"
 	provider-name="Skipmode A1">
   <requires>
     <import addon="xbmc.python"                     version="2.14.0"/>
@@ -30,6 +30,5 @@
     <website>http://nl.hardware.info/</website>
     <email></email>
     <source>https://github.com/skipmodea1/plugin.video.nlhardwareinfo</source>
-    <python3>true</python3>
   </extension>
 </addon>

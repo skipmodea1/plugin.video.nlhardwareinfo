@@ -12,7 +12,6 @@ from builtins import object
 import os
 import sys
 import urllib.request, urllib.parse, urllib.error
-import urllib.parse
 import requests
 from time import strptime
 import xbmcgui
